@@ -22,7 +22,5 @@ FROM python:3.11-alpine3.18
 # Копируем все файлы из текущей директории в /app контейнера
 COPY *requirements.txt ./
 # Устанавливаем все зависимости
-RUN pip install --no-cache-dir --upgrade pip
-RUN pip install --no-cache-dir . \
-RUN pip install -U -r requirements.txt; \
+RUN pip3 install -U -r requirements.txt; \
   
