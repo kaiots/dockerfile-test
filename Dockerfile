@@ -19,24 +19,8 @@
 # IN THE SOFTWARE.
 
 FROM python:3.11-alpine3.18
-
-# Build-time flags
-ARG WITH_PLUGINS=true
-
-# Environment variables
-ENV PACKAGES=/usr/local/lib/python3.11/site-packages
-ENV PYTHONDONTWRITEBYTECODE=1
-
-# Set build directory
-WORKDIR /tmp
-
-# Copy files necessary for build
-COPY *requirements.txt ./
-
-# Perform build and cleanup artifacts and caches
-RUN pip install --no-cache-dir --upgrade pip
-
-RUN pip install --no-cache-dir . \
- 
-RUN python -m pip install -r requirements.txt ./
+# Копируем все файлы из текущей директории в /app контейнера
+COPY *requirements.txt /app
+# Устанавливаем все зависимости
+RUN apk update && pip install -r /app/requirements.txt --no-cache-dir
   
