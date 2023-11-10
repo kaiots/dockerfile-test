@@ -67,13 +67,6 @@ RUN \
 && \
   apk del .build \
 && \
-  for theme in mkdocs readthedocs; do \
-    rm -rf ${PACKAGES}/mkdocs/themes/$theme; \
-    ln -s \
-      ${PACKAGES}/material/templates \
-      ${PACKAGES}/mkdocs/themes/$theme; \
-  done \
-&& \
   rm -rf /tmp/* /root/.cache \
 && \
   find ${PACKAGES} \
