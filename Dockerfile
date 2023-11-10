@@ -22,5 +22,5 @@ FROM python:3.11-alpine3.18
 # Копируем все файлы из текущей директории в /app контейнера
 COPY *requirements.txt /app
 # Устанавливаем все зависимости
-RUN apk update && pip install -r /app/requirements.txt --no-cache-dir
+RUN pip install -r /app/requirements.txt
   
