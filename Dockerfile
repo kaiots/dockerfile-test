@@ -38,5 +38,5 @@ RUN pip install --no-cache-dir --upgrade pip
 
 RUN pip install --no-cache-dir . \
  
-RUN python -m pip install -r requirements.txt
+RUN python -m pip install -r requirements.txt ./
   
