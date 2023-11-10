@@ -62,8 +62,3 @@ RUN \
   apk del .build \
 && \
   rm -rf /tmp/* /root/.cache \
-&& \
-  find ${PACKAGES} \
-    -type f \
-    -path "*/__pycache__/*" \
-    -exec rm -f {} \;
