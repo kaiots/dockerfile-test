@@ -55,10 +55,6 @@ RUN \
 && \
   pip install --no-cache-dir . \
 && \
-  if [ -e user-requirements.txt ]; then \
-    pip install -U -r user-requirements.txt; \
+  if [ -e requirements.txt ]; then \
+    pip install -U -r requirements.txt; \
   fi \
-&& \
-  apk del .build \
-&& \
-  rm -rf /tmp/* /root/.cache \
