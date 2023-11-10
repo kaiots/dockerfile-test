@@ -31,11 +31,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 WORKDIR /tmp
 
 # Copy files necessary for build
-COPY material material
-COPY package.json package.json
-COPY README.md README.md
 COPY *requirements.txt ./
-COPY pyproject.toml pyproject.toml
 
 # Perform build and cleanup artifacts and caches
 RUN \
@@ -84,17 +80,3 @@ RUN \
     -type f \
     -path "*/__pycache__/*" \
     -exec rm -f {} \;
-
-# Trust directory, required for git >= 2.35.2
-RUN git config --global --add safe.directory /docs &&\
-    git config --global --add safe.directory /site
-
-# Set working directory
-WORKDIR /docs
-
-# Expose MkDocs development server port
-EXPOSE 8000
-
-# Start development server by default
-ENTRYPOINT ["mkdocs"]
-CMD ["serve", "--dev-addr=0.0.0.0:8000"]
