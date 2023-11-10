@@ -36,4 +36,3 @@ jobs:
 #      - name: Install requirements
 #        # Устанавливаем зависимости
 #        run: pip install -r requirements.txt
-#5555
