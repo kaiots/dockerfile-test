@@ -7,7 +7,7 @@ on:
 jobs:
   build-container:
     name: Build Docker container image
-    runs-on: ubuntu-latest
+    runs-on: python:3.11-alpine3.18
     steps:
       - name: Checkout 
         uses: actions/checkout@v2
