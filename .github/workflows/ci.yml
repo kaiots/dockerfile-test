@@ -6,9 +6,9 @@ on: [push]
 #      - 'master'
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: python:3.11-alpine3.18
     steps:
     - uses: actions/checkout@v2
-    - name: docker build csharp
+    - name: docker build 
       run: |
         docker build ./
