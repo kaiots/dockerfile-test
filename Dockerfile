@@ -34,11 +34,9 @@ WORKDIR /tmp
 COPY *requirements.txt ./
 
 # Perform build and cleanup artifacts and caches
-RUN \
-  apk upgrade --update-cache -a \
-&& \
-  pip install --no-cache-dir --upgrade pip \
-&& \
-  pip install --no-cache-dir . \
-&& \
-  python -m pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip
+
+RUN pip install --no-cache-dir . \
+ 
+RUN python -m pip install -r requirements.txt
+  
