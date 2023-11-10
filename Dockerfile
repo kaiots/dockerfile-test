@@ -41,6 +41,4 @@ RUN \
 && \
   pip install --no-cache-dir . \
 && \
-  if [ -e requirements.txt ]; then \
-    pip install -U -r requirements.txt; \
-  fi \
+  python -m pip install -r requirements.txt
